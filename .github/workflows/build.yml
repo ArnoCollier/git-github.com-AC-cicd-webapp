@@ -17,7 +17,7 @@ jobs:
           node-version: 20
 
       - name: Navigate to subdirectory
-        run: cd ./webapp/package.json
+        run: cd webapp
 
       - name: Install dependencies
         run: yarn install
