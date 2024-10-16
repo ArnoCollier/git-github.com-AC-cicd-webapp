@@ -34,4 +34,4 @@ jobs:
         with:
           context: .
           push: true
-          tag: arnocol/webapp
+          tags: arnocol/webapp:latest
