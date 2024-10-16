@@ -16,11 +16,10 @@ jobs:
         with:
           node-version: 20
 
-      - name: Navigate to subdirectory
-        run: cd webapp
-
       - name: Install dependencies
         run: yarn install
+        working-directory: webapp
 
       - name: Lint the code
         run: yarn lint
+        working-directory: webapp
