@@ -30,7 +30,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           
       - name: Docker build and push
-        uses: cloudposse/github-action-docker-build-push@1.16.0
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
