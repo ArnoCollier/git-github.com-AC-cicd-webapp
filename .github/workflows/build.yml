@@ -24,4 +24,4 @@ jobs:
         working-directory: webapp
 
       - name: Build Docker image
-        run: docker build -t <your-docker-hub-username>/webapp:latest .
+        run: docker build -t arnocol/webapp:latest .
