@@ -1,0 +1,27 @@
+services:
+  webapp:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=mysql://user:password@database/db
+    depends_on:
+      - database
+
+  database:
+    image: mysql:8.0.39
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+
+  test:
+    image: webapp-webapp
+    command: yarn test    
+    environment:
+      - API_URL=http://webapp:3000  
+    depends_on:
+      - webapp               

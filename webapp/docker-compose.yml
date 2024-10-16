@@ -1,0 +1,24 @@
+services:
+  database:
+    image: mysql:8.0.39
+    environment:
+      MYSQL_ROOT_PASSWORD: yourpassword
+      MYSQL_DATABASE: yourdatabase
+    ports:
+      - "3306:3306"
+  webapp:
+    image: arnocol/webapp
+    environment:
+      API_URL: http://webapp:3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+
+  test:
+    image: webapp-webapp  
+    command: yarn test     
+    environment:
+      - API_URL=http://webapp:3000  
+    depends_on:
+      - webapp                
