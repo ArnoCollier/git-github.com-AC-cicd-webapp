@@ -31,5 +31,9 @@ jobs:
           
       - name: Docker build and push
         uses: cloudposse/github-action-docker-build-push@1.16.0
+        with:
+          context: .
+          push: true
+          tag: arnocol/webapp:latest
             
 
