@@ -23,5 +23,9 @@ jobs:
         run: yarn lint
         working-directory: webapp
 
-      - name: Build Docker image
-        run: docker build -t arnocol/webapp:latest .
+      - name: Docker build and push
+        uses: cloudposse/github-action-docker-build-push@1.16.0
+        with:
+          context: webapp   # Verander dit indien nodig naar de juiste map waar je Dockerfile zich bevindt
+          dockerfile: webapp/Dockerfile  # Geef het pad naar je Dockerfile aan
+          tags: arnocol/webapp:latest  # Je Docker Hub username en de naam van de image
