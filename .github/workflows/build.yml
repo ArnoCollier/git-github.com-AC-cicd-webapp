@@ -1,4 +1,3 @@
----
 name: Build and test
 on:
   push:
@@ -23,3 +22,6 @@ jobs:
       - name: Lint the code
         run: yarn lint
         working-directory: webapp
+
+      - name: Build Docker image
+        run: docker build -t <your-docker-hub-username>/webapp:latest .
