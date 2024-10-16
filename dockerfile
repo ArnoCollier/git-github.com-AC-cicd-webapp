@@ -1,13 +1,13 @@
-FROM node:alpine
+ FROM node:alpine
 
-WORKDIR /app
+ WORKDIR /app
 
-COPY package.json yarn.lock ./
+ COPY webapp/package.json webapp/yarn.lock ./
+ 
+ RUN yarn install
 
-RUN yarn install
+ COPY webapp .
 
-COPY . .
+ EXPOSE 3000
 
-EXPOSE 3000
-
-CMD ["yarn", "start"]
+ CMD ["yarn", "start"]
